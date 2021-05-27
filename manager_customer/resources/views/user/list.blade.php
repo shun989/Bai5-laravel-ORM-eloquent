@@ -89,7 +89,7 @@
                     <td>{{ $user->dob }}</td>
                     <td>{{ $user->email }}</td>
 {{--                    <td><a class="btn btn-primary" href="">Detail </a></td>--}}
-                    <td><a class="btn btn-warning" href="{{route('user.showUpdateForm', $user->id)}}">Edit </a></td>
+                    <td><a class="btn btn-warning" href="{{route('user.showUpdateForm', $user->id)}}">Edit</a></td>
                     <td><a class="btn btn-danger" href="{{route('user.deleteUser', $user->id)}}">Delete</a></td>
                 </tr>
             @endforeach

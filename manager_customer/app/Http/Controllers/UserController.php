@@ -41,16 +41,17 @@ class UserController extends Controller
 
     public function showUpdateForm($id)
     {
-        DB::table('customers')->find($id);
-        dd($id);
-        return view('user.update')->with('id', DB::table('customers')->find($id));
+        $user = DB::table('customers')->where('id','=',$id)->get();
+        return view('user.update',compact('user'));
     }
 
-    public function updateUser(Request $request, $id)
+    public function updateUser(Request $request)
     {
-        DB::table('customers')
-            ->where('id', $id)
-            ->update(array('name' => $request['name'], 'dob'=> $request['dob'], 'email'=> $request['email']));
+        DB::table('customers')->where('id',$request['id'])->update([
+            'name'=> $request['name'],
+            'dob'=>$request['dob'],
+            'email'=>$request['email']
+        ]);
         return redirect()->route('user.list');
     }
 }

@@ -17,25 +17,25 @@
 <div class="container">
     <h1>Trang chỉnh sửa user</h1>
     <form method="post" action="{{ route('user.updateUser')}}">
-        @method('PATCH')
+{{--        @method('PATCH')--}}
         @csrf
         <div class="mb-3">
-            <input type="hidden" name="id" class="form-control" value="{{$user->id}}">
+            <input type="hidden" name="id" class="form-control" value="{{$user[0]->id}}">
         </div>
         <div class="mb-3">
             <label  class="form-label">Customer Name</label>
-            <input type="text" name="name" class="form-control" value="{{$user->name}}">
+            <input type="text" name="name" class="form-control" value="{{$user[0]->name}}">
         </div>
         <div class="mb-3">
             <label  class="form-label">Day of Birth</label>
-            <input type="date" name="dob" value="{{$user->dob}}">
+            <input type="date" name="dob" value="{{$user[0]->dob}}">
         </div>
         <p class="text-danger">
             {{\Illuminate\Support\Facades\Session::get('error')}}
         </p>
         <div class="mb-3">
             <label class="form-label">Email</label>
-            <input type="email" name="email" class="form-control" value="{{$user->email}}">
+            <input type="email" name="email" class="form-control" value="{{$user[0]->email}}">
 
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>

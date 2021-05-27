@@ -26,7 +26,7 @@ Route::prefix('user')->group(function (){
 
     Route::get('/{id}/delete', [UserController::class, 'deleteUser'])->name('user.deleteUser');
 
-    Route::get('update/{id}/update', [UserController::class, 'showUpdateForm'])->name('user.showUpdateForm');
+    Route::get('/update/{id}', [UserController::class, 'showUpdateForm'])->name('user.showUpdateForm');
 
 
 
