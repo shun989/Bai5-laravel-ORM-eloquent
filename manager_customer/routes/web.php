@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\StudentController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,13 +20,13 @@ Route::get('/', function () {
 
 Route::prefix('user')->group(function (){
 
-    Route::get('/', [UserController::class, 'index'])->name('user.list');
+    Route::get('/', [StudentController::class, 'index'])->name('user.list');
 
-    Route::get('/create', [UserController::class, 'showCreateForm'])->name('user.showCreateForm');
+    Route::get('/create', [StudentController::class, 'showCreateForm'])->name('user.showCreateForm');
 
-    Route::get('/{id}/delete', [UserController::class, 'deleteUser'])->name('user.deleteUser');
+    Route::get('/{id}/delete', [StudentController::class, 'deleteUser'])->name('user.deleteUser');
 
-    Route::get('/update/{id}', [UserController::class, 'showUpdateForm'])->name('user.showUpdateForm');
+    Route::get('/update/{id}', [StudentController::class, 'showUpdateForm'])->name('user.showUpdateForm');
 
 
 
@@ -34,7 +34,7 @@ Route::prefix('user')->group(function (){
 
 Route::middleware('CheckAge')->group(function (){
 
-    Route::post('/create', [UserController::class, 'createUser'])->name('user.createUser');
+    Route::post('/create', [StudentController::class, 'createUser'])->name('user.createUser');
 
-    Route::post('/update', [UserController::class, 'updateUser'])->name('user.updateUser');
+    Route::post('/update', [StudentController::class, 'updateUser'])->name('user.updateUser');
 });

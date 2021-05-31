@@ -11,7 +11,7 @@ class UserController extends Controller
 {
     public function index()
     {
-//        $users = DB::table('customers')->paginate(10)->reverse();
+//        $users = DB::table('customers')->get(10)->reverse();
         $users = DB::table('customers')->paginate(10);
         return view('user.list', compact('users'));
     }
